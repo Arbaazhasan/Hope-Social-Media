@@ -1,0 +1,143 @@
+.createPostWindow {
+
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(163, 163, 163, 0.609);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    >form {
+        /* border: 2px solid red; */
+        width: 40%;
+        height: fit-content;
+        position: relative;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 1vw;
+        box-shadow: 0px 0px 12px rgb(77, 77, 77);
+
+
+        >.closeBtn {
+            /* border: 2px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid rgba(128, 128, 128, 0.51);
+            padding-bottom: .5rem;
+
+
+            >p {
+                font-weight: bolder;
+                text-transform: uppercase;
+                font-size: x-large;
+
+            }
+
+
+            >span {
+                border: 3px solid transparent;
+                padding: 1px 5px;
+                border-radius: .2vw;
+                font-weight: bold;
+                color: blueviolet;
+                cursor: pointer;
+
+
+                &:hover {
+                    color: white;
+                    background-color: blueviolet;
+                }
+            }
+
+        }
+
+        >.inputBar {
+            /* border: 2px solid green; */
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-bottom: 1px solid rgba(183, 183, 183, 0.498);
+
+
+            >input {
+                width: 92%;
+                padding: .5rem .5rem;
+                font-size: medium;
+                border: none;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            >label {
+                font-size: xx-large;
+                display: flex;
+
+                &:hover {
+                    color: blueviolet;
+                }
+
+
+            }
+
+
+            >#uploadImage {
+                display: none;
+            }
+
+
+        }
+
+
+
+        >.imageViewer {
+            /* border: 2px solid blue; */
+            width: 90%;
+            height: 20rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+
+            >img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+        }
+
+        >.uploadBtn {
+            /* border: 2px solid green; */
+
+            >button {
+                width: 20%;
+                height: 3em;
+                border-radius: .1vw;
+                background-color: rgb(107, 74, 224);
+                color: white;
+                font-weight: bold;
+                letter-spacing: 2px;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgb(73, 55, 140);
+                }
+
+            }
+        }
+
+
+    }
+}

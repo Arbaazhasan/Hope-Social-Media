@@ -6,6 +6,8 @@ import { server } from "../../App";
 import { Context } from '../..';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { RxHamburgerMenu } from "react-icons/rx";
+import ExploreMenu from '../ExploreMenu/ExploreMenu';
 
 
 const Header = () => {
@@ -15,11 +17,15 @@ const Header = () => {
 
 
   const { setIsAuthonticated, profilePhoto, setVal,
-     setSearchUserData } = useContext(Context);
+    setSearchUserData,
+    isSidebar, setIsSidebar,
+    userEmail, userName,
+
+
+  } = useContext(Context);
 
   const [logoutBtn, setLogoutBtn] = useState();
   const [searchUserName, setSearchUserName] = useState();
-
 
 
   // Logout API
@@ -76,18 +82,29 @@ const Header = () => {
 
   };
 
-
-
   return (
     <div className='header'>
+
+      <div className="slidingSidebar" style={{ "display": isSidebar ? "block" : "none" }}>
+        <ExploreMenu userEmail={userEmail} profilePhoto={profilePhoto} userName={userName} />
+
+      </div>
+
       <main>
-        <div className="headerLogo"><span>Hope</span></div>
+        <div className="headerLogo">
+          <p onClick={() => setIsSidebar((pre) => !pre)}>
+            <RxHamburgerMenu size={40} />
+          </p>
+          <span>Hope</span>
+
+        </div>
 
 
-
-        <div className="center">
+        <div className="HeaderCenter">
           <form action="" onSubmit={searchData}>
-            <AiOutlineSearch size={25} />
+            <p>
+              <AiOutlineSearch size={25} />
+            </p>
             <input onClick={() => { setVal("SearchUser"); }} onChange={(e) => { setSearchUserName(e.target.value); }} type="text" placeholder='Search for Creators, Inspiration and projects ' />
           </form>
         </div>

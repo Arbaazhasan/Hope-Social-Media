@@ -56,12 +56,16 @@ const Login = () => {
         <>
             {isAuthonticated ? <Navigate to={"/"} /> :
                 <div className='loginPage'>
+
                     <div className="loginWinodw">
+
                         <div className="loginleft">
                             <img src="loginImg.png" alt="" />
                         </div>
+
                         <div className="loginRight">
                             <h1>LogIn</h1>
+
                             <form onSubmit={submitHandler}>
                                 <input type="text" placeholder='Email' name='email' onChange={(e) => setEmail(e.target.value)} />
 
@@ -70,9 +74,12 @@ const Login = () => {
                                 {/* <span style={{ display: confirmPass ? "none" : "block", color: "red", fontSize: "small", alignSelf: "flex-end", marginTop: "10px" }}>* Confirm password is not same</span> */}
                                 <button >Login</button>
                             </form>
+
                             <Link to={'/register'}>SignUp</Link>
+
                         </div>
                     </div>
+
                 </div >
             }
 

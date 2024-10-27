@@ -133,3 +133,10 @@
     border-radius: .5vw;
     cursor: pointer;
 }
+
+
+@media (max-width : 786px) {
+    .UpdateInfo {
+        width: 80%;
+    }
+}

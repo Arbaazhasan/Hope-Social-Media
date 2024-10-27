@@ -64,13 +64,16 @@ const Profile = () => {
     return (
 
         <div className="profilePage">
+
             <div className="profileLeft">
                 <div className="profileLeftContent">
                     <Bio bio={bio} status={status} lives={lives} work={work} />
                     <ProfileController />
                 </div>
             </div>
+
             <div className="profileCenter">
+
 
                 {/* User Profile Window */}
 
@@ -93,6 +96,7 @@ const Profile = () => {
                 }
                 {/* <LikedPosts /> */}
             </div>
+
             <div className="profileRight">
                 <FollowersList />
                 {/* <Peoples /> */}

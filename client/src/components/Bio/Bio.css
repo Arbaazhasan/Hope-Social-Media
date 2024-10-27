@@ -10,6 +10,17 @@
     flex-direction: column;
 }
 
+.userInfo>div>span {
+    cursor: pointer;
+}
+
+.userInfo>div>span:hover {
+    transform: scale(1.4);
+    transition: .3s all;
+    color: red;
+
+}
+
 .userInfo>div:nth-child(1) {
     /* border: 2px solid green; */
     display: flex;

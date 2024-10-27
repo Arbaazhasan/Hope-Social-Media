@@ -43,6 +43,8 @@ const AppWrapper = () => {
   const [searchUser, setSearchUser] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [isCreatePost, setIsCreatePost] = useState(false);
+  const [isSidebar, setIsSidebar] = useState(false);
+  const [isUpdateBioWindow, setIsUpdateBioWindow] = useState(false);
 
 
 
@@ -91,7 +93,8 @@ const AppWrapper = () => {
       userProfileId, setUserProfileId,
       isSearch, setIsSearch,
       isCreatePost, setIsCreatePost,
-
+      isSidebar, setIsSidebar,
+      isUpdateBioWindow, setIsUpdateBioWindow,
 
       val, setVal
 

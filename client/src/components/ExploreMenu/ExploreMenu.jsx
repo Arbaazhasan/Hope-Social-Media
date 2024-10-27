@@ -13,9 +13,10 @@ import { FaUserPlus } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { Context } from '../..';
 import { FaLeaf } from 'react-icons/fa';
+import { IoClose } from "react-icons/io5";
 
 
-const ExploreMenu = () => {
+const ExploreMenu = ({ profilePhoto, userName, userEmail }) => {
     const { setSavedPostWindow,
         homePage, setHomePage,
         savedPostsPage, setSavedPostsPage,
@@ -25,16 +26,19 @@ const ExploreMenu = () => {
         followersList, setFollowersList,
         followingList, setFollowingList,
         newFeed, setNewFeed,
+        setIsCreatePost,
+        searchUser, setSearchUser,
 
-        searchUser, setSearchUser
+
+        setIsSidebar,
     } = useContext(Context);
 
-    // const [val, setVal] = useState();
 
-    // const handleNavigation = (selectedVal) => {
-    //     setVal(selectedVal);
-    // };
 
+    const createPostHandler = () => {
+        setIsCreatePost(pre => !pre);
+
+    };
 
 
     useEffect(() => {
@@ -89,18 +93,48 @@ const ExploreMenu = () => {
     }, [val, searchUser]);
 
 
-    return (
-        <div className='exploreMenu'>
-            <Link to={'/'} onClick={() => { setVal("home"); }}> <AiOutlineHome size={26} color='gray' />Home</Link>
-            <Link to={'/'} onClick={() => { setVal("Explore"); }} > <AiOutlineCompass size={26} color='gray' />Explore</Link>
-            <Link to={'/'} onClick={() => { setVal("FollowersList"); }}> <FaUserFriends size={26} color='gray' />Followers</Link>
-            <Link to={'/'} onClick={() => { setVal("FollowingList"); }}> <LiaUserFriendsSolid size={26} color='gray' />Following </Link>
-            <Link to={'/'} onClick={() => { setVal("Saved"); }}> < BsBookmarkCheck size={26} color='gray' />Saved Posts</Link>
-            <Link to={'/'} onClick={() => { setVal("NewFeed"); }} > <FaRegImages size={26} color='gray' />New Feed</Link>
-            <Link to={'/'} onClick={() => { setVal("Like"); }}> <BiLike size={26} color='gray' />Liked Posts</Link>
-            <Link to={'/'} onClick={() => setVal("Settings")}> < AiOutlineSetting size={26} color='gray' />Settings</Link>
+    const sidebarCloseHandler = () => {
 
+        setIsSidebar((pre) => false);
+    };
+
+    return (
+
+        <div className='exploreSideBar' >
+
+            <div className="closeSlideBarIcon" onClick={() => setIsSidebar((pre) => !pre)} >
+
+                <IoClose />
+
+            </div>
+
+            <Link to={"/profile"} style={{ "backgroundColor": "white" }} onClick={sidebarCloseHandler}>
+                <div className="homeProfileIcon" >
+                    <img src={`image/${profilePhoto ? profilePhoto : "usericon.png"}`} alt="profileImage" />
+                </div>
+                <div className="homeProfileUsername">
+                    <span style={{ textTransform: "capitalize" }}>{userName}</span>
+                    <span>@{userEmail}</span>
+                </div>
+            </Link>
+
+
+            <div className='exploreMenu' onClick={sidebarCloseHandler}>
+                <Link to={'/'} onClick={() => { setVal("home"); }}> <AiOutlineHome size={26} color='gray' />Home</Link>
+                <Link to={'/'} onClick={() => { setVal("Explore"); }} > <AiOutlineCompass size={26} color='gray' />Explore</Link>
+                <Link to={'/'} onClick={() => { setVal("FollowersList"); }}> <FaUserFriends size={26} color='gray' />Followers</Link>
+                <Link to={'/'} onClick={() => { setVal("FollowingList"); }}> <LiaUserFriendsSolid size={26} color='gray' />Following </Link>
+                <Link to={'/'} onClick={() => { setVal("Saved"); }}> < BsBookmarkCheck size={26} color='gray' />Saved Posts</Link>
+                <Link to={'/'} onClick={() => { setVal("NewFeed"); }} > <FaRegImages size={26} color='gray' />New Feed</Link>
+                <Link to={'/'} onClick={() => { setVal("Like"); }}> <BiLike size={26} color='gray' />Liked Posts</Link>
+                <Link to={'/'} onClick={() => setVal("Settings")}> < AiOutlineSetting size={26} color='gray' />Settings</Link>
+
+            </div>
+
+            {/* HOme page left side  create post Button */}
+            <button onClick={createPostHandler} >Create Post</button>
         </div >
+
     );
 };
 

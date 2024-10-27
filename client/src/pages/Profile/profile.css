@@ -47,3 +47,19 @@
 
 
 }
+
+
+
+@media (max-width : 786px) {
+    .profileLeft {
+        display: none;
+    }
+
+    .profileCenter {
+        width: 100%;
+    }
+
+    .profileRight {
+        display: none;
+    }
+}

@@ -44,14 +44,10 @@ const Home = () => {
         newFeed,
         searchUser,
         setNoOfPosts,
-        isCreatePost, setIsCreatePost
+        isCreatePost,
 
     } = useContext(Context);
 
-    const createPostHandler = () => {
-        setIsCreatePost(pre => !pre);
-
-    };
 
 
 
@@ -215,8 +211,6 @@ const Home = () => {
 
         }
 
-
-
     }, [refreshData]);
 
 
@@ -232,27 +226,11 @@ const Home = () => {
                 }
 
 
-
                 <div className="homeLeft">
-
-                    {/* User Profile Icon and Username */}
-
-                    <Link to={"/profile"}>
-                        <div className="homeProfileIcon">
-                            <img src={`image/${profilePhoto ? profilePhoto : "usericon.png"}`} alt="profileImage" />
-                        </div>
-                        <div className="homeProfileUsername">
-                            <span style={{ textTransform: "capitalize" }}>{userName}</span>
-                            <span>@{userEmail}</span>
-                        </div>
-                    </Link>
 
 
                     {/* Home Page Explore Menu */}
-                    <ExploreMenu />
-
-                    {/* HOme page left side  create post Button */}
-                    <button onClick={createPostHandler} >Create Post</button>
+                    <ExploreMenu userEmail={userEmail} profilePhoto={profilePhoto} userName={userName} />
 
                 </div>
 

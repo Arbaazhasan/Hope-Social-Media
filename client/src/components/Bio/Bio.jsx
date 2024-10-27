@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BiSolidEdit } from "react-icons/bi";
 
 import "./Bio.css";
 import UpdateInfo from '../UpdateInfo/UpdateInfo';
 import { Link } from 'react-router-dom';
+import { FaArrowLeft } from "react-icons/fa";
+import { Context } from '../..';
 
 const Bio = ({ bio, status, lives, work }) => {
 
+    const { isUpdateBioWindow, setIsUpdateBioWindow } = useContext(Context);
 
     const [checkUrl, setCheckUrl] = useState();
 
@@ -21,6 +24,9 @@ const Bio = ({ bio, status, lives, work }) => {
     return (
         <div className="userInfo">
             <div>
+
+                {isUpdateBioWindow && <span onClick={() => setIsUpdateBioWindow((pre) => !pre)}><FaArrowLeft /></span>}
+
 
                 <div id="popup1" className='UpateProfileBioInfo' ><UpdateInfo /></div>
 

@@ -11,6 +11,23 @@
     z-index: 100;
 }
 
+.slidingSidebar {
+    display: none;
+}
+
+.slidingSidebar {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40vw;
+    height: 730px;
+
+}
+
+
+
+
 .header>main {
     /* border: 2px solid black; */
     width: 80vw;
@@ -26,37 +43,55 @@
     text-transform: uppercase;
 }
 
-.center {
+.headerLogo>p {
+    display: none;
+}
+
+
+.HeaderCenter {
     /* border: 2px solid green; */
     width: 38%;
     height: 53%;
     display: flex;
-    justify-content: space-around;
+    align-content: center;
+    justify-content: center;
     background-color: rgb(241, 237, 246);
     border-radius: 100vw;
+    padding: 5px 0px 5px 0px;
 
 }
 
-.center>form {
+
+.HeaderCenter>form {
     width: 95%;
-    padding: 5px 0px 5px 0px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+
+}
+
+.HeaderCenter>form>p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 
-.center>form>input {
+.HeaderCenter>form>input {
     width: 92%;
-    padding: 4px;
+    /* padding: 4px; */
     font-size: medium;
     background-color: transparent;
     border: none;
+    /* border: 2px solid green; */
 }
 
-.center>form>input:focus {
+.HeaderCenter>form>input:focus {
     outline: none;
 }
+
 
 .UserProfileIcon {
     width: 25%;
@@ -98,4 +133,42 @@
 #LogoutBtn:hover {
     background-color: whitesmoke;
     border: 2px solid gray;
+}
+
+@media (max-width: 786px) {
+
+    .slidingSidebar {
+        display: block;
+        box-shadow: 0px 0px 25px black;
+        background-color: white;
+
+    }
+
+    .header>main {
+        gap: 1rem;
+    }
+
+    .headerLogo {
+        width: max-content;
+    }
+
+    .headerLogo>span {
+        display: none;
+    }
+
+    .headerLogo>p {
+        display: block;
+        cursor: pointer;
+    }
+
+    .HeaderCenter {
+        /* border: 2px solid red; */
+        width: 100%;
+    }
+
+    .UserProfileIcon {
+        /* border: 2px solid green; */
+        width: max-content;
+    }
+
 }
